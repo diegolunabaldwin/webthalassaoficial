@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Thalassa Hub Brand Colors */
+    --background: 210 33% 98%;
+    --foreground: 227 43% 42%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 227 43% 42%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 227 43% 42%;
+
+    /* Primary Blue - Azul Puerto #39509E */
+    --primary: 227 43% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary Blue - Brillo de Cielo #6F98CE */
+    --secondary: 213 45% 62%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 210 33% 96%;
+    --muted-foreground: 227 20% 50%;
+
+    /* Accent - Same as Secondary */
+    --accent: 213 45% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Gold/Champagne - #DCC069 */
+    --champagne: 46 60% 64%;
+    --champagne-foreground: 227 43% 20%;
+
+    /* Orange - Nuevo Día #DA654D */
+    --orange: 9 64% 58%;
+    --orange-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 30% 85%;
+    --input: 213 30% 85%;
+    --ring: 227 43% 42%;
+
+    --radius: 0.75rem;
+
+    /* Footer Dark */
+    --footer-bg: 220 30% 12%;
+    --footer-foreground: 220 10% 70%;
+
+    /* Event Cards */
+    --event-light: 213 60% 92%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 210 33% 98%;
+    --card: 220 30% 12%;
+    --card-foreground: 210 33% 98%;
+    --popover: 220 30% 12%;
+    --popover-foreground: 210 33% 98%;
+    --primary: 213 45% 62%;
+    --primary-foreground: 227 43% 10%;
+    --secondary: 227 43% 42%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 210 20% 60%;
+    --accent: 213 45% 62%;
+    --accent-foreground: 227 43% 10%;
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 213 45% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-champagne {
+    @apply bg-champagne text-champagne-foreground hover:bg-champagne/90 transition-all duration-300 rounded-lg px-8 py-4 font-bold text-lg;
+  }
+
+  .card-service {
+    @apply bg-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden;
+  }
+
+  .card-strategy {
+    @apply card-service border-t-4 border-t-secondary;
+  }
+
+  .card-markets {
+    @apply card-service border-t-4 border-t-champagne;
+  }
+
+  .card-learning {
+    @apply card-service border-t-4 border-t-orange;
+  }
+
+  .section-wave {
+    @apply relative;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
