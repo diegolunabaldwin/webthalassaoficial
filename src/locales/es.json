@@ -1,0 +1,133 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "events": "Eventos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Estrategia que nace del conocimiento y crece con conexiones.",
+    "subtitle": "Consultoría estratégica especializada en la Industria Alimentaria.",
+    "cta": "Nuestras líneas de negocio"
+  },
+  "about": {
+    "title": "25 años navegando la Industria Alimentaria",
+    "subtitle": "Sobre Nosotros",
+    "paragraph1": "En Thalassa Hub creemos que la seguridad alimentaria funciona mejor cuando se entiende desde la realidad del negocio.",
+    "paragraph2": "Susana Serna, fundadora y CEO, es Ingeniera de Industrias Alimentarias y cuenta con más de 25 años de experiencia en entidades internacionales, trabajando con empresas de toda la cadena de suministro alimentaria: desde la producción primaria hasta la industria, el retail y el canal HORECA.",
+    "paragraph2_bold1": "Susana Serna",
+    "paragraph2_bold2": "Ingeniera de Industrias Alimentarias",
+    "paragraph2_bold3": "25 años de experiencia",
+    "paragraph2_bold4": "entidades internacionales",
+    "paragraph3": "Esta visión transversal le ha permitido comprender de primera mano los retos y oportunidades de cada eslabón de la cadena y acompañar a las organizaciones no solo a cumplir, sino a consolidar sus marcas y expandirse, convirtiendo los requisitos normativos y las exigencias de clientes en oportunidades reales de diferenciación.",
+    "paragraph3_bold1": "retos y oportunidades",
+    "paragraph3_bold2": "consolidar sus marcas y expandirse",
+    "paragraph3_bold3": "requisitos normativos",
+    "paragraph3_bold4": "exigencias de clientes",
+    "paragraph3_bold5": "oportunidades reales de diferenciación",
+    "paragraph4": "Thalassa Hub se apoya en una red de colaboradores senior, profesionales con amplia trayectoria y conocimiento profundo del sector, que comparten una misma forma de entender la seguridad alimentaria: con criterio, experiencia y sentido práctico.",
+    "paragraph4_bold1": "red de colaboradores senior",
+    "quote": "\"Vamos más allá del requisito. Convertimos la complejidad en criterio, foco y decisiones claras.\""
+  },
+  "services": {
+    "title": "Un Hub. Tres líneas. Un mismo criterio.",
+    "subtitle": "Nuestras líneas de negocio",
+    "description": "Crecimiento, marca y expansión para empresas del sector alimentario que quieren ir más allá.",
+    "strategy": {
+      "title": "Strategy",
+      "description": "Donde se analiza el negocio de forma integral para definir una estrategia de seguridad alimentaria alineada con la estrategia global de la empresa.",
+      "items": {
+        "1": "Definición de estrategia en seguridad alimentaria",
+        "2": "Acompañamiento en auditorías de certificación y de cliente",
+        "3": "Diseño y desarrollo de programas de auditorías",
+        "4": "Transformación de restaurantes a modelo de franquicia",
+        "5": "Acompañamiento a entidades de certificación"
+      }
+    },
+    "markets": {
+      "title": "Markets",
+      "description": "Donde la estrategia se convierte en relaciones comerciales, acuerdos y presencia en mercados clave.",
+      "items": {
+        "1": "Dirección comercial externalizada.",
+        "2": "Desarrollo de cuentas clave y acuerdos estratégicos.",
+        "3": "Representación en ferias nacionales e internacionales.",
+        "4": "Programa de desarrollo comercial para profesionales independientes.",
+        "5": "Negociación estratégica nacional e internacional."
+      }
+    },
+    "learning": {
+      "title": "Learning",
+      "description": "Donde formamos a los profesionales para que desarrollen criterio y aporten valor real a sus organizaciones.",
+      "items": {
+        "1": "Seguridad Alimentaria",
+        "2": "Cursos oficiales de BRCGS, IFS, FSSC 22000",
+        "3": "Sostenibilidad y medioambiente",
+        "4": "Calidad",
+        "5": "Cursos a medida"
+      }
+    }
+  },
+  "events": {
+    "title": "Próximos eventos",
+    "subtitle": "Agenda 2026",
+    "alimentaria": {
+      "badge": "Presencia Confirmada",
+      "title": "Alimentaria 2026",
+      "date": "Del 23 al 26 de marzo 2026",
+      "location": "Barcelona, España",
+      "description": "Agenda tu reunión con el equipo de Thalassa Hub en Alimentaria 2026.",
+      "whatsapp": "Contactar por WhatsApp"
+    },
+    "formacion": {
+      "badge": "Próximamente",
+      "title": "Cursos de Formación",
+      "date": "Q2 2026",
+      "location": "Online & Presencial",
+      "description": "Actualización normativa para equipos de calidad y seguridad alimentaria."
+    },
+    "webinar": {
+      "badge": "Webinar",
+      "title": "Webinar: Las certificaciones de seguridad alimentaria en la internacionalización",
+      "date": "Jueves 26 Febrero 2026 - 17:00 España / 11:00 Perú/Colombia / 12:00 Chile / 13:00 Argentina",
+      "location": "Online",
+      "description": "REGÍSTRATE: www.lovable.dev",
+      "cta": "REGÍSTRATE AQUÍ"
+    }
+  },
+  "contact": {
+    "headline1": "Antes de dar el salto, conviene tener claro el rumbo.",
+    "headline2": "Agenda una reunión inicial sin compromiso y hablemos de cómo crecer con sentido.",
+    "linkedin": "LinkedIn de Thalassa Hub",
+    "phone": "+34 693 055 276",
+    "email": "hola@thalassahub.com",
+    "booking": {
+      "title": "Agenda tu reunión inicial",
+      "description": "Reserva directamente en nuestro calendario el horario que mejor te convenga."
+    },
+    "checkbox": {
+      "text": "He leído y acepto la",
+      "privacy": "Política de privacidad"
+    },
+    "button": "Agendar Reunión Inicial"
+  },
+  "footer": {
+    "object": {
+      "title": "Objeto del sitio web:",
+      "text": "El presente sitio web tiene como finalidad informar sobre los servicios de Thalassa Hub S.L, especializada en consultoría para empresas de la Industria Alimentaria, y facilitar el contacto y reserva de reuniones profesionales."
+    },
+    "intellectual": {
+      "title": "Propiedad intelectual:",
+      "text": "Todos los contenidos de esta web (textos, imágenes, logotipos, diseños, códigos) son propiedad de Thalassa Hub S.L o de terceros que han autorizado su uso. Queda prohibida su reproducción, distribución o transformación sin autorización expresa."
+    },
+    "responsibility": {
+      "title": "Responsabilidad:",
+      "text": "Thalassa Hub S.L no se responsabiliza de errores, mal uso de la información o contenido de terceros accesible desde enlaces externos."
+    },
+    "legal": {
+      "legalNotice": "Aviso legal",
+      "privacyPolicy": "Política de privacidad"
+    },
+    "copyright": "© 2026 Thalassa Hub. Todos los derechos reservados."
+  }
+}

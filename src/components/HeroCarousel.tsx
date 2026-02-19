@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from '@/contexts/LanguageContext';
 import landing1 from '@/assets/landing1.png';
 import landing2 from '@/assets/landing2.png';
 import landing3 from '@/assets/landing3.png';
@@ -7,6 +8,7 @@ const slides = [landing1, landing2, landing3];
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const t = useTranslation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,16 +42,16 @@ const HeroCarousel = () => {
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground mb-6 max-w-5xl mx-auto leading-tight animate-slide-up">
-            Estrategia que nace del conocimiento y crece con conexiones.
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 max-w-3xl mx-auto animate-fade-in font-body">
-            Consultoría estratégica especializada en la Industria Alimentaria.
+            {t('hero.subtitle')}
           </p>
           <a
             href="#servicios"
             className="btn-secondary inline-block text-lg animate-fade-in"
           >
-            Nuestras líneas de negocio
+            {t('hero.cta')}
           </a>
         </div>
       </div>

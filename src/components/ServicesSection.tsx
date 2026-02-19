@@ -2,51 +2,8 @@ import iconStrategy from '@/assets/icon-strategy.png';
 import iconMarkets from '@/assets/icon-markets.png';
 import iconLearning from '@/assets/icon-learning.png';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
+import { useTranslation } from '@/contexts/LanguageContext';
 
-const services = [
-  {
-    id: 'strategy',
-    icon: iconStrategy,
-    title: 'Strategy',
-    description: 'Donde se analiza el negocio de forma integral para definir una estrategia de seguridad alimentaria alineada con la estrategia global de la empresa.',
-    items: [
-      'Definición de estrategia en seguridad alimentaria',
-      'Acompañamiento en auditorías de certificación y de cliente',
-      'Diseño y desarrollo de programas de auditorías',
-      'Transformación de restaurantes a modelo de franquicia',
-      'Acompañamiento a entidades de certificación',
-    ],
-    variant: 'strategy' as const,
-  },
-  {
-    id: 'markets',
-    icon: iconMarkets,
-    title: 'Markets',
-    description: 'Donde la estrategia se convierte en relaciones comerciales, acuerdos y presencia en mercados clave.',
-    items: [
-      'Dirección comercial externalizada.',
-      'Desarrollo de cuentas clave y acuerdos estratégicos.',
-      'Representación en ferias nacionales e internacionales.',
-      'Programa de desarrollo comercial para profesionales independientes.',
-      'Negociación estratégica nacional e internacional.',
-    ],
-    variant: 'markets' as const,
-  },
-  {
-    id: 'learning',
-    icon: iconLearning,
-    title: 'Learning',
-    description: 'Donde formamos a los profesionales para que desarrollen criterio y aporten valor real a sus organizaciones.',
-    items: [
-      'Seguridad Alimentaria',
-      'Cursos oficiales de BRCGS, IFS, FSSC 22000',
-      'Sostenibilidad y medioambiente',
-      'Calidad',
-      'Cursos a medida',
-    ],
-    variant: 'learning' as const,
-  },
-];
 
 const cardStyles = {
   strategy: 'card-strategy',
@@ -57,6 +14,53 @@ const cardStyles = {
 const ServicesSection = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
+  const t = useTranslation();
+
+  // Services data with translations
+  const services = [
+    {
+      id: 'strategy',
+      icon: iconStrategy,
+      title: t('services.strategy.title'),
+      description: t('services.strategy.description'),
+      items: [
+        t('services.strategy.items.1'),
+        t('services.strategy.items.2'),
+        t('services.strategy.items.3'),
+        t('services.strategy.items.4'),
+        t('services.strategy.items.5'),
+      ],
+      variant: 'strategy' as const,
+    },
+    {
+      id: 'markets',
+      icon: iconMarkets,
+      title: t('services.markets.title'),
+      description: t('services.markets.description'),
+      items: [
+        t('services.markets.items.1'),
+        t('services.markets.items.2'),
+        t('services.markets.items.3'),
+        t('services.markets.items.4'),
+        t('services.markets.items.5'),
+      ],
+      variant: 'markets' as const,
+    },
+    {
+      id: 'learning',
+      icon: iconLearning,
+      title: t('services.learning.title'),
+      description: t('services.learning.description'),
+      items: [
+        t('services.learning.items.1'),
+        t('services.learning.items.2'),
+        t('services.learning.items.3'),
+        t('services.learning.items.4'),
+        t('services.learning.items.5'),
+      ],
+      variant: 'learning' as const,
+    },
+  ];
 
   return (
     <section id="servicios" className="py-20 md:py-28 bg-muted/30">
@@ -69,13 +73,13 @@ const ServicesSection = () => {
           }`}
         >
           <span className="text-primary font-semibold uppercase tracking-widest text-sm mb-4 block">
-            Nuestras líneas de negocio
+            {t('services.subtitle')}
           </span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
-            Un Hub. Tres líneas. Un mismo criterio.
+            {t('services.title')}
           </h2>
           <p className="text-foreground/70 text-lg md:text-xl max-w-3xl mx-auto font-body">
-            Crecimiento, marca y expansión para empresas del sector alimentario que quieren ir más allá.
+            {t('services.description')}
           </p>
         </div>
 

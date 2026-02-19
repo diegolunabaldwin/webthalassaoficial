@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { Calendar, Linkedin, Phone, Mail } from 'lucide-react';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import PrivacyPolicyModal from './PrivacyPolicyModal';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 const ContactSection = () => {
   const [accepted, setAccepted] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const t = useTranslation();
 
   const handleBooking = () => {
     if (accepted) {
@@ -46,10 +48,10 @@ const ContactSection = () => {
                 {/* Left Column - Contact Info */}
                 <div className="text-left">
                   <p className="text-primary-foreground text-xl md:text-2xl font-heading font-semibold mb-4 leading-relaxed">
-                    Antes de dar el salto, conviene tener claro el rumbo.
+                    {t('contact.headline1')}
                   </p>
                   <p className="text-primary-foreground/80 text-lg mb-8 font-body leading-relaxed">
-                    Agenda una reunión inicial sin compromiso y hablemos de cómo crecer con sentido.
+                    {t('contact.headline2')}
                   </p>
 
                   {/* Contact Details */}
@@ -63,7 +65,7 @@ const ContactSection = () => {
                       <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center group-hover:bg-secondary/30 transition-colors">
                         <Linkedin className="w-5 h-5 text-secondary" />
                       </div>
-                      <span className="font-body">LinkedIn de Thalassa Hub</span>
+                      <span className="font-body">{t('contact.linkedin')}</span>
                     </a>
 
                     <a 
@@ -75,7 +77,7 @@ const ContactSection = () => {
                       <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center group-hover:bg-secondary/30 transition-colors">
                         <Phone className="w-5 h-5 text-secondary" />
                       </div>
-                      <span className="font-body">+34 693 055 276</span>
+                      <span className="font-body">{t('contact.phone')}</span>
                     </a>
 
                     <a 
@@ -85,7 +87,7 @@ const ContactSection = () => {
                       <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center group-hover:bg-secondary/30 transition-colors">
                         <Mail className="w-5 h-5 text-secondary" />
                       </div>
-                      <span className="font-body">hola@thalassahub.com</span>
+                      <span className="font-body">{t('contact.email')}</span>
                     </a>
                   </div>
                 </div>
@@ -98,10 +100,10 @@ const ContactSection = () => {
                   </div>
 
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-                    Agenda tu reunión inicial
+                    {t('contact.booking.title')}
                   </h2>
                   <p className="text-primary-foreground/80 text-lg mb-8 font-body">
-                    Reserva directamente en nuestro calendario el horario que mejor te convenga.
+                    {t('contact.booking.description')}
                   </p>
 
                   {/* Checkbox */}
@@ -126,7 +128,7 @@ const ContactSection = () => {
                       </div>
                     </div>
                     <span className="text-primary-foreground/90 font-body">
-                      He leído y acepto la{' '}
+                      {t('contact.checkbox.text')}{' '}
                       <button 
                         type="button"
                         onClick={(e) => {
@@ -135,7 +137,7 @@ const ContactSection = () => {
                         }}
                         className="underline hover:text-secondary transition-colors"
                       >
-                        Política de privacidad
+                        {t('contact.checkbox.privacy')}
                       </button>
                     </span>
                   </label>
@@ -148,7 +150,7 @@ const ContactSection = () => {
                       !accepted && 'opacity-50 cursor-not-allowed'
                     }`}
                   >
-                    Agendar Reunión Inicial
+                    {t('contact.button')}
                   </button>
                 </div>
               </div>

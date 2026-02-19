@@ -2,10 +2,12 @@ import { useState } from 'react';
 import logoFooter from '@/assets/logo-footer.png';
 import LegalNoticeModal from './LegalNoticeModal';
 import PrivacyPolicyModal from './PrivacyPolicyModal';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 const Footer = () => {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const t = useTranslation();
 
   return (
     <>
@@ -19,13 +21,13 @@ const Footer = () => {
           {/* Legal Text */}
           <div className="max-w-4xl mx-auto space-y-6 text-sm leading-relaxed mb-10 font-body">
             <p>
-              <strong className="text-footer-foreground/90">Objeto del sitio web:</strong> El presente sitio web tiene como finalidad informar sobre los servicios de Thalassa Hub S.L, especializada en consultoría para empresas de la Industria Alimentaria, y facilitar el contacto y reserva de reuniones profesionales.
+              <strong className="text-footer-foreground/90">{t('footer.object.title')}</strong> {t('footer.object.text')}
             </p>
             <p>
-              <strong className="text-footer-foreground/90">Propiedad intelectual:</strong> Todos los contenidos de esta web (textos, imágenes, logotipos, diseños, códigos) son propiedad de Thalassa Hub S.L o de terceros que han autorizado su uso. Queda prohibida su reproducción, distribución o transformación sin autorización expresa.
+              <strong className="text-footer-foreground/90">{t('footer.intellectual.title')}</strong> {t('footer.intellectual.text')}
             </p>
             <p>
-              <strong className="text-footer-foreground/90">Responsabilidad:</strong> Thalassa Hub S.L no se responsabiliza de errores, mal uso de la información o contenido de terceros accesible desde enlaces externos.
+              <strong className="text-footer-foreground/90">{t('footer.responsibility.title')}</strong> {t('footer.responsibility.text')}
             </p>
           </div>
 
@@ -38,20 +40,20 @@ const Footer = () => {
                   onClick={() => setLegalModalOpen(true)}
                   className="hover:text-secondary transition-colors"
                 >
-                  Aviso legal
+                  {t('footer.legal.legalNotice')}
                 </button>
                 <span className="text-footer-foreground/30">|</span>
                 <button 
                   onClick={() => setPrivacyModalOpen(true)}
                   className="hover:text-secondary transition-colors"
                 >
-                  Política de privacidad
+                  {t('footer.legal.privacyPolicy')}
                 </button>
               </div>
 
               {/* Copyright */}
               <p className="text-sm font-body">
-                © 2026 Thalassa Hub. Todos los derechos reservados.
+                {t('footer.copyright')}
               </p>
             </div>
           </div>
