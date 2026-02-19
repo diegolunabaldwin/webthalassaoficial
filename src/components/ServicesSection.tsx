@@ -8,11 +8,12 @@ const services = [
     id: 'strategy',
     icon: iconStrategy,
     title: 'Strategy',
-    description: 'Donde se analiza el negocio completo, y se decide hacia dónde y cómo crecer.',
+    description: 'Donde se analiza el negocio de forma integral para definir una estrategia de seguridad alimentaria alineada con la estrategia global de la empresa.',
     items: [
-      'Estándares privados de seguridad alimentaria',
-      'Desarrollo de programas de auditorías de seguridad alimentaria',
-      'Compliance y seguridad alimentaria en franquicias',
+      'Definición de estrategia en seguridad alimentaria',
+      'Acompañamiento en auditorías de certificación y de cliente',
+      'Diseño y desarrollo de programas de auditorías',
+      'Transformación de restaurantes a modelo de franquicia',
       'Acompañamiento a entidades de certificación',
     ],
     variant: 'strategy' as const,
@@ -25,7 +26,8 @@ const services = [
     items: [
       'Dirección comercial externalizada.',
       'Desarrollo de cuentas clave y acuerdos estratégicos.',
-      'Apoyo estratégico en la toma de decisiones.',
+      'Representación en ferias nacionales e internacionales.',
+      'Programa de desarrollo comercial para profesionales independientes.',
       'Negociación estratégica nacional e internacional.',
     ],
     variant: 'markets' as const,
@@ -103,7 +105,7 @@ const ServicesSection = () => {
               <p className="text-foreground/70 mb-6 font-body">
                 {service.description}
               </p>
-              <ul className="space-y-3 mt-auto">
+              <ul className="space-y-3 mt-6">
                 {service.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
                     <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${

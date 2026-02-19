@@ -9,7 +9,7 @@ const events = [
     title: 'Feria Alimentaria',
     date: 'Del 23 al 26 de marzo 2026',
     location: 'Barcelona, España',
-    description: 'Visita nuestro stand y descubre las nuevas rutas de exportación hacia mercados emergentes.',
+    description: 'Agenda tu reunión con el equipo de Thalassa Hub en Alimentaria 2026.',
     variant: 'dark' as const,
   },
   {
@@ -20,6 +20,16 @@ const events = [
     date: 'Q2 2026',
     location: 'Online & Presencial',
     description: 'Actualización normativa para equipos de calidad y seguridad alimentaria.',
+    variant: 'light' as const,
+  },
+  {
+    id: 'webinar',
+    badge: 'Webinar',
+    badgeVariant: 'gold' as const,
+    title: 'Webinar: Las certificaciones de seguridad alimentaria en la internacionalización',
+    date: 'Jueves 26 Febrero 2026 - 17:00 España / 11:00 Perú/Colombia / 12:00 Chile / 13:00 Argentina',
+    location: 'Online',
+    description: 'REGÍSTRATE: www.lovable.dev',
     variant: 'light' as const,
   },
 ];
@@ -49,7 +59,7 @@ const EventsSection = () => {
         {/* Event Cards */}
         <div 
           ref={cardsRef}
-          className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
         >
           {events.map((event, index) => (
             <div
@@ -77,26 +87,49 @@ const EventsSection = () => {
               </span>
 
               {/* Title */}
-              <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+              <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 break-words">
                 {event.title}
               </h3>
 
               {/* Details */}
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-5 h-5 flex-shrink-0 opacity-80" />
-                  <span className="font-body">{event.date}</span>
+                  <Calendar className="w-5 h-5 flex-shrink-0 opacity-80 flex-shrink-0" />
+                  <span className="font-body break-words">{event.date}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 flex-shrink-0 opacity-80" />
-                  <span className="font-body">{event.location}</span>
+                  <MapPin className="w-5 h-5 flex-shrink-0 opacity-80 flex-shrink-0" />
+                  <span className="font-body break-words">{event.location}</span>
                 </div>
               </div>
 
-              {/* Description */}
-              <p className={`font-body ${event.variant === 'dark' ? 'text-primary-foreground/80' : 'text-foreground/70'}`}>
-                {event.description}
-              </p>
+              {/* Description or Button */}
+              {event.id === 'webinar' ? (
+                <a
+                  href="https://webinar-thalassahub.lovable.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-block mt-6"
+                >
+                  REGÍSTRATE AQUÍ
+                </a>
+              ) : (
+                <p className={`font-body ${event.variant === 'dark' ? 'text-primary-foreground/80' : 'text-foreground/70'}`}>
+                  {event.description}
+                </p>
+              )}
+
+              {/* WhatsApp Button for Alimentaria */}
+              {event.id === 'alimentaria' && (
+                <a
+                  href="https://wa.me/+34693055276"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-champagne px-6 py-3 font-semibold rounded-lg hover:bg-champagne/90 transition-all duration-300 inline-block mt-6"
+                >
+                  Contactar por WhatsApp
+                </a>
+              )}
             </div>
           ))}
         </div>
