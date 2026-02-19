@@ -1,0 +1,133 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "events": "Events",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Strategy born from knowledge and growing through connections.",
+    "subtitle": "Strategic consultancy specialized in the Food Industry.",
+    "cta": "Our business lines"
+  },
+  "about": {
+    "title": "25 years navigating the Food Industry",
+    "subtitle": "About Us",
+    "paragraph1": "At Thalassa Hub, we believe that food safety works best when understood from a business perspective.",
+    "paragraph2": "Susana Serna, founder and CEO, is a Food Industry Engineer with over 25 years of experience in international organizations, working with companies across the entire food supply chain: from primary production to industry, retail, and the HORECA channel.",
+    "paragraph2_bold1": "Susana Serna",
+    "paragraph2_bold2": "Food Industry Engineer",
+    "paragraph2_bold3": "25 years of experience",
+    "paragraph2_bold4": "international organizations",
+    "paragraph3": "This cross-cutting vision has allowed her to understand first-hand the challenges and opportunities of each link in the chain and to help organizations not only comply but also consolidate their brands and expand, turning regulatory requirements and customer demands into real differentiation opportunities.",
+    "paragraph3_bold1": "challenges and opportunities",
+    "paragraph3_bold2": "consolidate their brands and expand",
+    "paragraph3_bold3": "regulatory requirements",
+    "paragraph3_bold4": "customer demands",
+    "paragraph3_bold5": "real differentiation opportunities",
+    "paragraph4": "Thalassa Hub relies on a network of senior collaborators, professionals with extensive experience and deep sector knowledge, who share the same approach to food safety: with judgment, experience, and practical sense.",
+    "paragraph4_bold1": "network of senior collaborators",
+    "quote": "\"We go beyond requirements. We turn complexity into judgment, focus, and clear decisions.\""
+  },
+  "services": {
+    "title": "One Hub. Three lines. One same approach.",
+    "subtitle": "Our business lines",
+    "description": "Growth, branding, and expansion for food sector companies that want to go further.",
+    "strategy": {
+      "title": "Strategy",
+      "description": "Where the business is analyzed comprehensively to define a food safety strategy aligned with the company's overall strategy.",
+      "items": {
+        "1": "Definition of food safety strategy",
+        "2": "Support in certification and client audits",
+        "3": "Design and development of audit programs",
+        "4": "Restaurant transformation to franchise model",
+        "5": "Support to certification bodies"
+      }
+    },
+    "markets": {
+      "title": "Markets",
+      "description": "Where strategy becomes commercial relationships, agreements, and presence in key markets.",
+      "items": {
+        "1": "Outsourced commercial management.",
+        "2": "Key account development and strategic agreements.",
+        "3": "Representation at national and international fairs.",
+        "4": "Commercial development program for independent professionals.",
+        "5": "National and international strategic negotiation."
+      }
+    },
+    "learning": {
+      "title": "Learning",
+      "description": "Where we train professionals to develop judgment and add real value to their organizations.",
+      "items": {
+        "1": "Food Safety",
+        "2": "Official BRCGS, IFS, FSSC 22000 courses",
+        "3": "Sustainability and environment",
+        "4": "Quality",
+        "5": "Custom courses"
+      }
+    }
+  },
+  "events": {
+    "title": "Upcoming events",
+    "subtitle": "2026 Agenda",
+    "alimentaria": {
+      "badge": "Confirmed Presence",
+      "title": "Alimentaria 2026",
+      "date": "March 23-26, 2026",
+      "location": "Barcelona, Spain",
+      "description": "Schedule your meeting with the Thalassa Hub team at Alimentaria 2026.",
+      "whatsapp": "Contact via WhatsApp"
+    },
+    "formacion": {
+      "badge": "Coming Soon",
+      "title": "Training Courses",
+      "date": "Q2 2026",
+      "location": "Online & In-person",
+      "description": "Regulatory update for quality and food safety teams."
+    },
+    "webinar": {
+      "badge": "Webinar",
+      "title": "Webinar: Food safety certifications in internationalization",
+      "date": "Thursday February 26, 2026 - 17:00 Spain / 11:00 Peru/Colombia / 12:00 Chile / 13:00 Argentina",
+      "location": "Online",
+      "description": "REGISTER: www.lovable.dev",
+      "cta": "REGISTER HERE"
+    }
+  },
+  "contact": {
+    "headline1": "Before taking the leap, it's good to have a clear direction.",
+    "headline2": "Schedule an initial meeting with no commitment and let's talk about growing with purpose.",
+    "linkedin": "Thalassa Hub LinkedIn",
+    "phone": "+34 693 055 276",
+    "email": "hola@thalassahub.com",
+    "booking": {
+      "title": "Schedule your initial meeting",
+      "description": "Book directly in our calendar at the time that suits you best."
+    },
+    "checkbox": {
+      "text": "I have read and accept the",
+      "privacy": "Privacy Policy"
+    },
+    "button": "Schedule Initial Meeting"
+  },
+  "footer": {
+    "object": {
+      "title": "Website purpose:",
+      "text": "This website aims to inform about the services of Thalassa Hub S.L, specialized in consultancy for Food Industry companies, and to facilitate contact and booking of professional meetings."
+    },
+    "intellectual": {
+      "title": "Intellectual property:",
+      "text": "All contents of this website (texts, images, logos, designs, codes) are property of Thalassa Hub S.L or third parties who have authorized their use. Reproduction, distribution, or transformation without express authorization is prohibited."
+    },
+    "responsibility": {
+      "title": "Responsibility:",
+      "text": "Thalassa Hub S.L is not responsible for errors, misuse of information, or third-party content accessible from external links."
+    },
+    "legal": {
+      "legalNotice": "Legal Notice",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "copyright": "© 2026 Thalassa Hub. All rights reserved."
+  }
+}
