@@ -71,28 +71,12 @@
   "events": {
     "title": "Próximos eventos",
     "subtitle": "Agenda 2026",
-    "alimentaria": {
-      "badge": "Presencia Confirmada",
-      "title": "Alimentaria 2026",
-      "date": "Del 23 al 26 de marzo 2026",
-      "location": "Barcelona, España",
-      "description": "Agenda tu reunión con el equipo de Thalassa Hub en Alimentaria 2026.",
-      "whatsapp": "Contactar por WhatsApp"
-    },
     "formacion": {
       "badge": "Próximamente",
       "title": "Cursos de Formación",
       "date": "Q2 2026",
       "location": "Online & Presencial",
       "description": "Actualización normativa para equipos de calidad y seguridad alimentaria."
-    },
-    "webinar": {
-      "badge": "Webinar",
-      "title": "Webinar: Las certificaciones de seguridad alimentaria en la internacionalización",
-      "date": "Jueves 26 Febrero 2026 - 17:00 España / 11:00 Perú/Colombia / 12:00 Chile / 13:00 Argentina",
-      "location": "Online",
-      "description": "REGÍSTRATE: www.lovable.dev",
-      "cta": "REGÍSTRATE AQUÍ"
     }
   },
   "contact": {

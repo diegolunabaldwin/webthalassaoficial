@@ -71,28 +71,12 @@
   "events": {
     "title": "Upcoming events",
     "subtitle": "2026 Agenda",
-    "alimentaria": {
-      "badge": "Confirmed Presence",
-      "title": "Alimentaria 2026",
-      "date": "March 23-26, 2026",
-      "location": "Barcelona, Spain",
-      "description": "Schedule your meeting with the Thalassa Hub team at Alimentaria 2026.",
-      "whatsapp": "Contact via WhatsApp"
-    },
     "formacion": {
       "badge": "Coming Soon",
       "title": "Training Courses",
       "date": "Q2 2026",
       "location": "Online & In-person",
       "description": "Regulatory update for quality and food safety teams."
-    },
-    "webinar": {
-      "badge": "Webinar",
-      "title": "Webinar: Food safety certifications in internationalization",
-      "date": "Thursday February 26, 2026 - 17:00 Spain / 11:00 Peru/Colombia / 12:00 Chile / 13:00 Argentina",
-      "location": "Online",
-      "description": "REGISTER: www.lovable.dev",
-      "cta": "REGISTER HERE"
     }
   },
   "contact": {

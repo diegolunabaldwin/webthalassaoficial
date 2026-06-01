@@ -60,23 +60,11 @@ export type TranslationKey =
   // Events Section
   | 'events.title'
   | 'events.subtitle'
-  | 'events.alimentaria.badge'
-  | 'events.alimentaria.title'
-  | 'events.alimentaria.date'
-  | 'events.alimentaria.location'
-  | 'events.alimentaria.description'
-  | 'events.alimentaria.whatsapp'
   | 'events.formacion.badge'
   | 'events.formacion.title'
   | 'events.formacion.date'
   | 'events.formacion.location'
   | 'events.formacion.description'
-  | 'events.webinar.badge'
-  | 'events.webinar.title'
-  | 'events.webinar.date'
-  | 'events.webinar.location'
-  | 'events.webinar.description'
-  | 'events.webinar.cta'
 
   // Contact Section
   | 'contact.headline1'
