@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 
 const API_URL = process.env.VITE_API_URL || "https://thalassa-api.diegoluba17.workers.dev";
@@ -14,6 +15,17 @@ const escHtml = (v: unknown) =>
   String(v ?? "").replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] as string
   );
+
+/* Texto plano para los rastreadores que no ejecutan JavaScript. */
+const ficha = (p: Fila) =>
+  `<article><h3>${escHtml(p.nombre)}</h3><p>${escHtml(p.rol_es)}</p>` +
+  `<p>${escHtml(p.bio_es)}</p>` +
+  `<p>${escHtml(((p.expertise as string[]) || []).join(", "))}</p></article>`;
+
+const cita = (r: Fila) =>
+  `<blockquote><p>${escHtml(r.texto_es)}</p><footer>${escHtml(
+    [r.cliente_nombre, r.cliente_cargo, r.cliente_empresa].filter(Boolean).join(", ")
+  )}</footer></blockquote>`;
 
 /**
  * Hornea en el HTML los profesionales y las reseñas aprobadas.
@@ -30,10 +42,15 @@ function contenidoThalassa(): Plugin {
   let profesionales: Fila[] = [];
   let resenas: Fila[] = [];
   let media: number | null = null;
+  let outDir = "dist";
 
   return {
     name: "thalassa-contenido",
     apply: "build",
+
+    configResolved(config) {
+      outDir = path.resolve(config.root, config.build.outDir);
+    },
 
     async buildStart() {
       const traer = async (ruta: string) => {
@@ -106,17 +123,6 @@ function contenidoThalassa(): Plugin {
         })),
       ];
 
-      // Texto plano para los rastreadores que no ejecutan JavaScript.
-      const ficha = (p: Fila) =>
-        `<article><h3>${escHtml(p.nombre)}</h3><p>${escHtml(p.rol_es)}</p>` +
-        `<p>${escHtml(p.bio_es)}</p>` +
-        `<p>${escHtml(((p.expertise as string[]) || []).join(", "))}</p></article>`;
-
-      const cita = (r: Fila) =>
-        `<blockquote><p>${escHtml(r.texto_es)}</p><footer>${escHtml(
-          [r.cliente_nombre, r.cliente_cargo, r.cliente_empresa].filter(Boolean).join(", ")
-        )}</footer></blockquote>`;
-
       const bloques = [
         profesionales.length
           ? `<section><h2>Hub de Profesionales de Thalassa Hub</h2>${profesionales.map(ficha).join("")}</section>`
@@ -130,6 +136,60 @@ function contenidoThalassa(): Plugin {
         html: bloques ? html.replace("</body>", `<noscript>${bloques}</noscript></body>`) : html,
         tags,
       };
+    },
+
+    /**
+     * Emite profesionales.html a partir de index.html, con su propio título,
+     * descripción y canonical.
+     *
+     * Hace falta porque esto es una SPA: sin un HTML propio, /profesionales
+     * serviría la cabecera de la portada y Google indexaría las dos URL con el
+     * mismo título, que es justo lo que hace que una de las dos no posicione.
+     */
+    closeBundle() {
+      const indice = path.join(outDir, "index.html");
+      if (!fs.existsSync(indice)) {
+        console.warn("[thalassa] no encuentro index.html, no genero profesionales.html");
+        return;
+      }
+
+      const TITULO =
+        "Hub de Profesionales | Auditores de seguridad alimentaria · Thalassa Hub";
+      const DESC =
+        "Conoce a los auditores y consultores senior de Thalassa Hub: BRCGS, IFS Food, " +
+        "FSSC 22000, sostenibilidad y formación para la industria alimentaria.";
+      const URL = "https://www.thalassahub.com/profesionales";
+
+      let html = fs
+        .readFileSync(indice, "utf-8")
+        .replace(/<title>[^<]*<\/title>/, `<title>${escHtml(TITULO)}</title>`)
+        .replace(
+          /(<meta name="description" content=")[^"]*(")/,
+          `$1${escHtml(DESC)}$2`
+        )
+        .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${URL}$2`)
+        .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${URL}$2`)
+        .replace(
+          /(<meta property="og:title" content=")[^"]*(")/,
+          `$1${escHtml(TITULO)}$2`
+        )
+        .replace(
+          /(<meta property="og:description" content=")[^"]*(")/,
+          `$1${escHtml(DESC)}$2`
+        );
+
+      // En esta página el texto sin JavaScript es solo el equipo.
+      if (profesionales.length) {
+        html = html.replace(
+          /<noscript>[\s\S]*?<\/noscript>/,
+          `<noscript><section><h1>Hub de Profesionales de Thalassa Hub</h1>${profesionales
+            .map(ficha)
+            .join("")}</section></noscript>`
+        );
+      }
+
+      fs.writeFileSync(path.join(outDir, "profesionales.html"), html, "utf-8");
+      console.log("[thalassa] generado profesionales.html con cabecera propia");
     },
   };
 }

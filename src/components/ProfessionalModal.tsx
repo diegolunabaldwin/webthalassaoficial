@@ -1,12 +1,12 @@
-import type { ComponentType } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { enIdioma, type Profesional } from '@/lib/thalassaApi';
+import ProfessionalAvatar from './ProfessionalAvatar';
 
 interface Props {
   profesional: Profesional | null;
   onClose: () => void;
-  Avatar: ComponentType<{ p: Profesional; className?: string }>;
 }
 
 const Bloque = ({ titulo, children }: { titulo: string; children: React.ReactNode }) => (
@@ -37,8 +37,11 @@ const Lista = ({ items }: { items: string[] }) => (
   </ul>
 );
 
-const ProfessionalModal = ({ profesional: p, onClose, Avatar }: Props) => {
+const ProfessionalModal = ({ profesional: p, onClose }: Props) => {
   const { t, language } = useLanguage();
+  // Desde /profesionales el ancla suelta no lleva a ninguna parte: hay que
+  // volver a la home.
+  const enHome = useLocation().pathname === '/';
   if (!p) return null;
 
   const rol = enIdioma(p.rol_es, p.rol_en, language);
@@ -49,7 +52,7 @@ const ProfessionalModal = ({ profesional: p, onClose, Avatar }: Props) => {
     <Dialog open onOpenChange={(abierto) => !abierto && onClose()}>
       <DialogContent className="max-w-3xl max-h-[88vh] overflow-y-auto p-0 gap-0 bg-card">
         <div className="bg-primary px-7 py-8 md:px-11 flex items-center gap-6">
-          <Avatar p={p} className="w-20 h-20 md:w-24 md:h-24 text-2xl border-2 border-white/30" />
+          <ProfessionalAvatar p={p} className="w-20 h-20 md:w-24 md:h-24 text-2xl border-2 border-white/30" />
           <div className="min-w-0">
             <DialogTitle className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground leading-tight">
               {p.nombre}
@@ -119,7 +122,7 @@ const ProfessionalModal = ({ profesional: p, onClose, Avatar }: Props) => {
           ) : (
             <span />
           )}
-          <a href="#contacto" onClick={onClose} className="btn-champagne text-base">
+          <a href={enHome ? '#contacto' : '/#contacto'} onClick={onClose} className="btn-champagne text-base">
             {t('professionals.contact')}
           </a>
         </div>

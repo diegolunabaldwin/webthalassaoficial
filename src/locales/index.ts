@@ -97,6 +97,11 @@ export type TranslationKey =
   | 'professionals.linkedin'
   | 'professionals.contact'
   | 'professionals.close'
+  | 'professionals.seeAll'
+  | 'professionals.seeAllCount'
+  | 'professionals.ctaText'
+  | 'professionals.ctaButton'
+  | 'professionals.backHome'
 
   // Reseñas de clientes
   | 'reviews.subtitle'

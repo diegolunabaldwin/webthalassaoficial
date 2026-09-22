@@ -113,7 +113,12 @@
     "availability": "Availability",
     "linkedin": "View LinkedIn profile",
     "contact": "Check availability",
-    "close": "Close"
+    "close": "Close",
+    "seeAll": "Meet the whole team",
+    "seeAllCount": "See all {n} professionals in the Hub",
+    "ctaText": "Not sure which profile fits your project? Tell us what you need and we will suggest the right one.",
+    "ctaButton": "Let's talk about your project",
+    "backHome": "Back to home"
   },
   "reviews": {
     "subtitle": "What our clients say",

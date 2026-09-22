@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import logoFooter from '@/assets/logo-footer.png';
 import LegalNoticeModal from './LegalNoticeModal';
 import PrivacyPolicyModal from './PrivacyPolicyModal';
@@ -8,6 +9,8 @@ const Footer = () => {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const t = useTranslation();
+  // Fuera de la portada el ancla necesita la barra para volver primero a la home.
+  const enHome = useLocation().pathname === '/';
 
   return (
     <>
@@ -36,7 +39,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               {/* Legal Links */}
               <div className="flex items-center gap-6 text-sm font-body">
-                <a href="#resenas" className="hover:text-secondary transition-colors">
+                <a href={enHome ? '#resenas' : '/#resenas'} className="hover:text-secondary transition-colors">
                   {t('footer.reviews')}
                 </a>
                 <span className="text-footer-foreground/30">|</span>

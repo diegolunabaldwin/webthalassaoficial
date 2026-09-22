@@ -113,7 +113,12 @@
     "availability": "Disponibilidad",
     "linkedin": "Ver perfil de LinkedIn",
     "contact": "Consultar disponibilidad",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "seeAll": "Conoce a todo el equipo",
+    "seeAllCount": "Ver los {n} profesionales del Hub",
+    "ctaText": "¿No sabes qué perfil encaja con tu proyecto? Cuéntanos qué necesitas y te proponemos el adecuado.",
+    "ctaButton": "Hablemos de tu proyecto",
+    "backHome": "Volver al inicio"
   },
   "reviews": {
     "subtitle": "Lo que dicen nuestros clientes",
