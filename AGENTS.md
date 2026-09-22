@@ -43,3 +43,14 @@ npm run test:watch   # Vitest watch mode
 ## No CI/CD
 
 - No `.github/workflows/`. No pre-push hooks. Lint and test must be run manually.
+
+## vercel.json
+
+- **No admite comentarios.** Vercel valida el fichero contra un esquema estricto
+  y rechaza claves como `"//"` dentro de los objetos de `rewrites` o `headers`:
+  el despliegue falla entero con "Configuration error", sin más detalle.
+- La reescritura de `/profesionales` va **antes** del comodín, porque esa ruta
+  se sirve desde `profesionales.html`, un HTML aparte que genera el plugin de
+  `vite.config.ts` con su propio title, description y canonical.
+- El comodín `/(.*)` existe para que `/resena/:token` no dé 404 al entrar
+  directamente: es una ruta de cliente, no un fichero.
