@@ -11,11 +11,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
-  // Navigation links with translation keys
+  // Navigation links with translation keys.
+  // "Recomiéndanos" no entra aquí: pide una acción, así que va como botón
+  // destacado. Y "Reseñas" vive junto a Contacto, enlazada desde el pie.
   const navLinks = [
     { key: 'navbar.home' as const, href: '#inicio' },
     { key: 'navbar.about' as const, href: '#nosotros' },
     { key: 'navbar.services' as const, href: '#servicios' },
+    { key: 'navbar.professionals' as const, href: '#profesionales' },
     { key: 'navbar.events' as const, href: '#eventos' },
     { key: 'navbar.contact' as const, href: '#contacto' },
   ];
@@ -32,7 +35,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.key}
@@ -67,6 +70,13 @@ const Navbar = () => {
                 EN
               </ToggleGroupItem>
             </ToggleGroup>
+
+            <a
+              href="#recomienda"
+              className="bg-champagne text-champagne-foreground font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-champagne/90 transition-colors whitespace-nowrap"
+            >
+              {t('navbar.recommend')}
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,6 +103,14 @@ const Navbar = () => {
                   {t(link.key)}
                 </a>
               ))}
+
+              <a
+                href="#recomienda"
+                onClick={() => setIsOpen(false)}
+                className="bg-champagne text-champagne-foreground font-bold text-center px-5 py-3 rounded-lg mt-2"
+              >
+                {t('navbar.recommend')}
+              </a>
 
               {/* Language Toggle - Mobile */}
               <div className="flex gap-2 mt-4">

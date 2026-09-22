@@ -36,7 +36,11 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               {/* Legal Links */}
               <div className="flex items-center gap-6 text-sm font-body">
-                <button 
+                <a href="#resenas" className="hover:text-secondary transition-colors">
+                  {t('footer.reviews')}
+                </a>
+                <span className="text-footer-foreground/30">|</span>
+                <button
                   onClick={() => setLegalModalOpen(true)}
                   className="hover:text-secondary transition-colors"
                 >
