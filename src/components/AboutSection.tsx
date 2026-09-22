@@ -1,4 +1,4 @@
-import susana from '@/assets/susana.png';
+import susana from '@/assets/susana.webp';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { useTranslation } from '@/contexts/LanguageContext';
 
@@ -47,7 +47,11 @@ const AboutSection = () => {
               <div className="absolute -inset-4 bg-gradient-to-br from-secondary/20 to-primary/10 rounded-2xl -z-10" />
               <img
                 src={susana}
-                alt="Susana Serna - Founder & CEO de Thalassa Hub"
+                alt="Susana Serna, fundadora y CEO de Thalassa Hub"
+                width={464}
+                height={519}
+                loading="lazy"
+                decoding="async"
                 className="rounded-xl shadow-2xl max-w-full h-auto w-full max-h-[600px] object-cover"
               />
             </div>

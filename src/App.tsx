@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Index from "./pages/Index";
+import Professionals from "./pages/Professionals";
+import ReviewInvite from "./pages/ReviewInvite";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,6 +20,10 @@ const App = () => (
         <LanguageProvider>
           <Routes>
             <Route path="/" element={<Index />} />
+            {/* Hub de Profesionales completo, con URL propia para posicionar */}
+            <Route path="/profesionales" element={<Professionals />} />
+            {/* Enlace privado que recibe el cliente para dejar su reseña */}
+            <Route path="/resena/:token" element={<ReviewInvite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

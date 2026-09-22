@@ -1,34 +1,47 @@
+# Los enlaces /resena/ son personales y de un solo uso: no deben rastrearse.
+
 User-agent: Googlebot
 Allow: /
+Disallow: /resena/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /resena/
 
 User-agent: Twitterbot
 Allow: /
+Disallow: /resena/
 
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /resena/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /resena/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /resena/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /resena/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /resena/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /resena/
 
 User-agent: CCBot
 Allow: /
+Disallow: /resena/
 
 User-agent: *
 Allow: /
+Disallow: /resena/
 
 Sitemap: https://www.thalassahub.com/sitemap.xml

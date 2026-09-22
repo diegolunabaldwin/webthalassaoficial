@@ -45,11 +45,68 @@ const PrivacyPolicyModal = ({ open, onOpenChange }: PrivacyPolicyModalProps) => 
           </section>
 
           <section>
+            <h3 className="text-lg font-semibold text-secondary mb-2">Programa de recomendaciones</h3>
+            <p className="mb-2">
+              En la sección «Recomiéndanos» una persona puede facilitarnos los datos de contacto
+              profesional de un tercero (nombre, empresa, correo electrónico y, opcionalmente, teléfono).
+            </p>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              <li>
+                Quien recomienda declara expresamente contar con el consentimiento de esa persona
+                antes de facilitarnos sus datos.
+              </li>
+              <li>
+                <strong>Informamos a la persona recomendada</strong> en su primer contacto y, en todo
+                caso, dentro del plazo de un mes, indicándole el origen de sus datos y la finalidad,
+                conforme al artículo 14 del RGPD.
+              </li>
+              <li>
+                Ese mismo aviso incluye un enlace que permite solicitar la supresión inmediata de sus
+                datos con un solo clic, sin necesidad de justificarlo.
+              </li>
+              <li>
+                <strong>Base jurídica:</strong> interés legítimo en la prospección comercial entre
+                profesionales (art. 6.1.f RGPD), ponderado con el derecho de oposición descrito arriba.
+              </li>
+              <li>
+                <strong>Conservación:</strong> hasta que se solicite la supresión o transcurran 12 meses
+                sin interacción.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="text-lg font-semibold text-secondary mb-2">Reseñas de clientes</h3>
+            <p className="mb-2">
+              Al finalizar un servicio podemos invitarte a dejar una reseña mediante un enlace personal
+              y con caducidad. Si decides enviarla:
+            </p>
+            <ul className="list-disc list-inside space-y-1 ml-2">
+              <li>
+                Publicaremos tu nombre, cargo y empresa junto al texto de la reseña en esta web, previa
+                revisión por nuestra parte.
+              </li>
+              <li>
+                <strong>Base jurídica:</strong> tu consentimiento, que prestas al enviar el formulario.
+              </li>
+              <li>
+                Puedes pedirnos en cualquier momento que retiremos tu reseña escribiendo a
+                hola@thalassahub.com, sin tener que dar explicaciones.
+              </li>
+              <li>Dejar una reseña es siempre voluntario y no condiciona la prestación del servicio.</li>
+            </ul>
+          </section>
+
+          <section>
             <h3 className="text-lg font-semibold text-secondary mb-2">Legitimación</h3>
             <p className="mb-2">El tratamiento de tus datos se basa en:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Tu consentimiento explícito al enviar un formulario o reservar una cita.</li>
               <li>El cumplimiento de una relación contractual cuando corresponda (por ejemplo, prestación de servicios).</li>
+              <li>
+                Nuestro interés legítimo en la prospección comercial entre profesionales, en el caso
+                concreto del programa de recomendaciones.
+              </li>
             </ul>
           </section>
 
@@ -58,6 +115,14 @@ const PrivacyPolicyModal = ({ open, onOpenChange }: PrivacyPolicyModalProps) => 
             <p className="mb-2">Tus datos no se cederán a terceros, excepto:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Proveedores que gestionan los servicios de reserva de citas, como Calendly LLC (EE. UU.), bajo Cláusulas Contractuales Tipo de la UE.</li>
+              <li>
+                Cloudflare, Inc., como encargado del tratamiento, para el alojamiento de la base de
+                datos del Hub de Profesionales, las recomendaciones y las reseñas.
+              </li>
+              <li>
+                Proveedores de correo transaccional, para el envío de los avisos y confirmaciones
+                descritos en esta política.
+              </li>
               <li>Proveedores de hosting o analítica, únicamente para la correcta prestación del servicio.</li>
             </ul>
           </section>

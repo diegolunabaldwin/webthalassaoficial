@@ -1,0 +1,40 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+
+  "rewrites": [
+    {
+      "//": "El Hub tiene su propio HTML, generado en el build con titulo, descripcion y canonical propios. Va antes del comodin para que no lo capture.",
+      "source": "/profesionales",
+      "destination": "/profesionales.html"
+    },
+    {
+      "//": "Sin esta reescritura, entrar directo a /resena/<token> daria 404: es una ruta de cliente, no un fichero. Las reescrituras se aplican despues del sistema de ficheros, asi que sitemap.xml, robots.txt y los assets siguen sirviendose tal cual.",
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        }
+      ]
+    },
+    {
+      "//": "El enlace de resena es personal y de un solo uso: nunca debe indexarse.",
+      "source": "/resena/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}

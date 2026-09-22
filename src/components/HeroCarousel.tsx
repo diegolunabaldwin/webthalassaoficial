@@ -1,14 +1,29 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from '@/contexts/LanguageContext';
-import landing1 from '@/assets/landing1.png';
-import landing2 from '@/assets/landing2.png';
-import landing3 from '@/assets/landing3.png';
+import landing1 from '@/assets/landing1.webp';
+import landing2 from '@/assets/landing2.webp';
+import landing3 from '@/assets/landing3.webp';
 
 const slides = [landing1, landing2, landing3];
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  // La primera imagen es la que marca el tiempo de carga percibido. Las otras
+  // dos no se piden hasta que el navegador está libre: la primera transición
+  // ocurre a los 5 s, así que da tiempo de sobra.
+  const [cargarResto, setCargarResto] = useState(false);
   const t = useTranslation();
+
+  useEffect(() => {
+    const idle =
+      'requestIdleCallback' in window
+        ? window.requestIdleCallback(() => setCargarResto(true), { timeout: 2500 })
+        : window.setTimeout(() => setCargarResto(true), 1500);
+    return () => {
+      if ('cancelIdleCallback' in window) window.cancelIdleCallback(idle as number);
+      else clearTimeout(idle as number);
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,21 +34,30 @@ const HeroCarousel = () => {
 
   return (
     <section id="inicio" className="relative h-screen min-h-[700px] overflow-hidden">
-      {/* Background Images */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src={slide}
-            alt={`Slide ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      ))}
+      {/* Fondo. Son decorativas: el texto real va en el h1, así que alt vacío. */}
+      {slides.map((slide, index) => {
+        if (index > 0 && !cargarResto) return null;
+        return (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide}
+              alt=""
+              aria-hidden="true"
+              width={1920}
+              height={1080}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={index === 0 ? 'high' : 'low'}
+              decoding={index === 0 ? 'sync' : 'async'}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        );
+      })}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-primary/85" />
@@ -67,7 +91,7 @@ const HeroCarousel = () => {
                 ? 'bg-secondary w-8'
                 : 'bg-primary-foreground/50 hover:bg-primary-foreground/70'
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Ir a la imagen ${index + 1}`}
           />
         ))}
       </div>

@@ -24,3 +24,8 @@ skills-lock.json
 *.njsproj
 *.sln
 *.sw?
+
+# Artefactos de pruebas locales
+capturas/
+preview.log
+probar-secciones.py
