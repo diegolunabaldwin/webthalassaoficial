@@ -178,18 +178,44 @@ function contenidoThalassa(): Plugin {
           `$1${escHtml(DESC)}$2`
         );
 
-      // En esta página el texto sin JavaScript es solo el equipo.
       if (profesionales.length) {
+        // En esta página el texto sin JavaScript es solo el equipo.
         html = html.replace(
           /<noscript>[\s\S]*?<\/noscript>/,
           `<noscript><section><h1>Hub de Profesionales de Thalassa Hub</h1>${profesionales
             .map(ficha)
             .join("")}</section></noscript>`
         );
+      } else {
+        // Hub todavía sin dar de alta: la página existe y funciona, pero no
+        // interesa que Google indexe una página vacía. Cuando Susana añada al
+        // primer profesional, la siguiente reconstrucción quita este noindex.
+        html = html.replace(
+          /(<meta name="robots" content=")[^"]*(")/,
+          "$1noindex, follow$2"
+        );
       }
 
       fs.writeFileSync(path.join(outDir, "profesionales.html"), html, "utf-8");
-      console.log("[thalassa] generado profesionales.html con cabecera propia");
+
+      // El sitemap solo anuncia /profesionales cuando hay a quién mostrar.
+      const hoy = new Date().toISOString().slice(0, 10);
+      const url = (loc: string, prio: string) =>
+        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${hoy}</lastmod>\n` +
+        `    <changefreq>weekly</changefreq>\n    <priority>${prio}</priority>\n  </url>`;
+      const urls = [url("https://www.thalassahub.com/", "1.0")];
+      if (profesionales.length) urls.push(url("https://www.thalassahub.com/profesionales", "0.9"));
+      fs.writeFileSync(
+        path.join(outDir, "sitemap.xml"),
+        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`,
+        "utf-8"
+      );
+
+      console.log(
+        `[thalassa] profesionales.html generado (${
+          profesionales.length ? "indexable" : "noindex: Hub vacío"
+        }) y sitemap con ${urls.length} URL`
+      );
     },
   };
 }
