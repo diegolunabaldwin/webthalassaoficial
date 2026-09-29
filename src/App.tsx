@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Professionals from "./pages/Professionals";
 import ReviewInvite from "./pages/ReviewInvite";
@@ -18,6 +19,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <LanguageProvider>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             {/* Hub de Profesionales completo, con URL propia para posicionar */}

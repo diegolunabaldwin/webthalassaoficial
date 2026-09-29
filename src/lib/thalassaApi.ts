@@ -127,6 +127,25 @@ export const enviarRecomendacion = (datos: Recomendacion) =>
     body: JSON.stringify(datos),
   });
 
+/** Consulta desde la ficha de un profesional. Siempre llega a Thalassa Hub. */
+export interface Consulta {
+  profesional_id?: number;
+  nombre: string;
+  email: string;
+  empresa?: string;
+  telefono?: string;
+  mensaje?: string;
+  consentimiento: boolean;
+  /** Señuelo anti bots: debe llegar siempre vacío. */
+  web?: string;
+}
+
+export const enviarConsulta = (datos: Consulta) =>
+  pedir<{ ok: boolean; mensaje: string }>('/api/consultas', {
+    method: 'POST',
+    body: JSON.stringify(datos),
+  });
+
 export const getInvitacion = (token: string) =>
   pedir<Invitacion>(`/api/review-invite/${encodeURIComponent(token)}`);
 

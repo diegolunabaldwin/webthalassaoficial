@@ -110,15 +110,13 @@
     "accreditations": "Acreditaciones",
     "languages": "Idiomas",
     "availability": "Disponibilidad",
-    "contact": "Consultar disponibilidad",
     "close": "Cerrar",
     "seeAll": "Conoce a todo el equipo",
     "seeAllCount": "Ver los {n} profesionales del Hub",
     "ctaText": "¿No sabes qué perfil encaja con tu proyecto? Cuéntanos qué necesitas y te proponemos el adecuado.",
     "ctaButton": "Hablemos de tu proyecto",
     "backHome": "Volver al inicio",
-    "viaHub": "Todo el contacto con nuestros profesionales se coordina a través de Thalassa Hub.",
-    "email": "Escribir a Thalassa Hub"
+    "viaHub": "Todo el contacto con nuestros profesionales se coordina a través de Thalassa Hub."
   },
   "reviews": {
     "subtitle": "Lo que dicen nuestros clientes",
@@ -215,5 +213,27 @@
       "privacyPolicy": "Política de privacidad"
     },
     "copyright": "© 2026 Thalassa Hub. Todos los derechos reservados."
+  },
+  "consulta": {
+    "abrir": "Consultar por {n}",
+    "volver": "Volver al perfil",
+    "titulo": "Consultar por {n}",
+    "intro": "Cuéntanos qué necesitas y Thalassa Hub te responde. Tu mensaje llega al equipo, no al profesional directamente.",
+    "nombre": "Tu nombre",
+    "email": "Tu email",
+    "empresa": "Empresa",
+    "telefono": "Teléfono",
+    "opcional": "Opcional",
+    "mensaje": "¿En qué podemos ayudarte?",
+    "mensajePlaceholder": "Qué norma, qué planta, en qué momento estáis. Cualquier detalle nos ayuda.",
+    "consent": "He leído y acepto la",
+    "consentPrivacy": "Política de privacidad",
+    "enviar": "Enviar consulta",
+    "enviando": "Enviando...",
+    "okTitulo": "Consulta enviada",
+    "okTexto": "Gracias. Thalassa Hub te responderá en breve al correo que nos has dejado.",
+    "cerrar": "Cerrar",
+    "errorConsent": "Necesitamos que aceptes la política de privacidad.",
+    "errorGeneric": "No hemos podido enviar tu consulta. Inténtalo de nuevo en un momento."
   }
 }
