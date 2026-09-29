@@ -48,6 +48,14 @@ const ProfessionalModal = ({ profesional: p, onClose }: Props) => {
   const ubicacion = [p.ciudad, p.pais].filter(Boolean).join(', ');
   const disponibilidad = enIdioma(p.disponibilidad_es, p.disponibilidad_en, language);
 
+  // Susana pidió que ningún auditor publique datos de contacto: todo pasa por
+  // Thalassa Hub. El asunto ya trae el nombre para que ella sepa por quién preguntan.
+  const correo =
+    'mailto:hola@thalassahub.com?subject=' +
+    encodeURIComponent(
+      (language === 'en' ? 'Enquiry about ' : 'Consulta sobre ') + p.nombre
+    );
+
   return (
     <Dialog open onOpenChange={(abierto) => !abierto && onClose()}>
       <DialogContent className="max-w-3xl max-h-[88vh] overflow-y-auto p-0 gap-0 bg-card">
@@ -59,9 +67,7 @@ const ProfessionalModal = ({ profesional: p, onClose }: Props) => {
             </DialogTitle>
             <p className="text-xs font-semibold uppercase tracking-widest text-champagne mt-2">{rol}</p>
             <DialogDescription className="text-primary-foreground/70 font-body mt-2">
-              {[ubicacion, p.anios_experiencia ? `${p.anios_experiencia} ${t('professionals.years')}` : '']
-                .filter(Boolean)
-                .join(' · ')}
+              {ubicacion}
             </DialogDescription>
           </div>
         </div>
@@ -110,21 +116,17 @@ const ProfessionalModal = ({ profesional: p, onClose }: Props) => {
         </div>
 
         <div className="border-t border-border bg-muted px-7 py-5 md:px-11 flex flex-wrap items-center justify-between gap-4">
-          {p.linkedin ? (
-            <a
-              href={p.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-primary hover:text-secondary transition-colors"
-            >
-              {t('professionals.linkedin')}
+          <p className="text-sm text-muted-foreground font-body max-w-sm">
+            {t('professionals.viaHub')}
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <a href={enHome ? '#contacto' : '/#contacto'} onClick={onClose} className="btn-primary text-base">
+              {t('professionals.contact')}
             </a>
-          ) : (
-            <span />
-          )}
-          <a href={enHome ? '#contacto' : '/#contacto'} onClick={onClose} className="btn-champagne text-base">
-            {t('professionals.contact')}
-          </a>
+            <a href={correo} className="btn-champagne text-base">
+              {t('professionals.email')}
+            </a>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

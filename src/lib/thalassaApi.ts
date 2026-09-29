@@ -25,15 +25,12 @@ export interface Profesional {
   rol_en: string | null;
   bio_es: string;
   bio_en: string | null;
-  anios_experiencia: number | null;
   ciudad: string | null;
   pais: string | null;
   expertise: string[];
   sectores: string[];
   acreditaciones: string[];
   idiomas: string[];
-  linkedin: string | null;
-  email?: string | null;
   foto_url: string | null;
   disponibilidad_es: string | null;
   disponibilidad_en: string | null;
@@ -79,6 +76,8 @@ export interface Recomendacion {
   lead_telefono?: string;
   servicio?: string;
   plazo?: string;
+  /** Causa a la que Thalassa donará los 50 EUR si la recomendación prospera. */
+  causa?: string;
   mensaje?: string;
   consentimiento: boolean;
   /** Señuelo anti bots: debe llegar siempre vacío. */

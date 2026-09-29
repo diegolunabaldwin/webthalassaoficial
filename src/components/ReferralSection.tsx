@@ -16,6 +16,7 @@ const vacio = {
   lead_telefono: '',
   servicio: '',
   plazo: '',
+  causa: '',
   mensaje: '',
   web: '', // señuelo anti bots
 };
@@ -68,6 +69,16 @@ const ReferralSection = () => {
     'referral.timingQuarter',
     'referral.timingYear',
     'referral.timingUnsure',
+  ];
+
+  // Las cinco causas que eligió Susana. El valor que viaja es el identificador,
+  // no el texto, para que el Worker pueda validarlo.
+  const causas: { valor: string; clave: TranslationKey }[] = [
+    { valor: 'desperdicio-alimentario', clave: 'referral.causeWaste' },
+    { valor: 'restauracion-ambiental', clave: 'referral.causeNature' },
+    { valor: 'limpieza-playas', clave: 'referral.causeBeaches' },
+    { valor: 'educacion-alimentaria', clave: 'referral.causeEducation' },
+    { valor: 'agricultura-regenerativa', clave: 'referral.causeFarming' },
   ];
 
   const enviar = async (e: FormEvent) => {
@@ -240,6 +251,24 @@ const ReferralSection = () => {
                     <Campo id="l_mensaje" etiqueta={t('referral.message')}>
                       <textarea id="l_mensaje" rows={3} maxLength={2000} value={datos.mensaje} onChange={set('mensaje')}
                         placeholder={t('referral.messagePlaceholder')} className={`${claseCampo} resize-y`} />
+                    </Campo>
+                  </fieldset>
+
+                  <fieldset className="mb-8">
+                    <legend className="w-full flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-champagne mb-5">
+                      {t('referral.causeTitle')}
+                      <span className="flex-1 h-px bg-white/20" />
+                    </legend>
+                    <p className="text-primary-foreground/75 font-body text-sm mb-4 max-w-2xl">
+                      {t('referral.causeIntro')}
+                    </p>
+                    <Campo id="l_causa" etiqueta={t('referral.causeLabel')}>
+                      <select id="l_causa" value={datos.causa} onChange={set('causa')} className={claseCampo}>
+                        <option value="" className="text-foreground">{t('referral.causeDefault')}</option>
+                        {causas.map((c) => (
+                          <option key={c.valor} value={c.valor} className="text-foreground">{t(c.clave)}</option>
+                        ))}
+                      </select>
                     </Campo>
                   </fieldset>
 

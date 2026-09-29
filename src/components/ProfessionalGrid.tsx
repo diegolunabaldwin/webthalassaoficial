@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { Linkedin } from 'lucide-react';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { codigoIdioma, enIdioma, type Profesional } from '@/lib/thalassaApi';
@@ -105,24 +104,11 @@ const ProfessionalGrid = ({ profesionales, conFiltros = false, cargando = false 
               >
                 {t('professionals.viewProfile')}
               </button>
-              <div className="flex items-center gap-3">
-                {p.idiomas.length > 0 && (
-                  <span className="text-xs text-muted-foreground">
-                    {p.idiomas.map(codigoIdioma).join(' · ')}
-                  </span>
-                )}
-                {p.linkedin && (
-                  <a
-                    href={p.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`LinkedIn de ${p.nombre}`}
-                    className="text-secondary hover:text-primary transition-colors"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
+              {p.idiomas.length > 0 && (
+                <span className="text-xs text-muted-foreground">
+                  {p.idiomas.map(codigoIdioma).join(' · ')}
+                </span>
+              )}
             </div>
           </article>
         ))}
