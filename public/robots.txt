@@ -1,22 +1,39 @@
-# Los enlaces /resena/ son personales y de un solo uso: no deben rastrearse.
+# Thalassa Hub S.L · www.thalassahub.com
+#
+# Buscadores tradicionales y de IA tienen acceso completo: queremos que nos
+# citen. Lo único cerrado son los enlaces personales de reseña, que son de un
+# solo uso y no deben acabar indexados.
+#
+# No publicamos llms.txt a propósito: Google confirmó que no lo soporta y los
+# registros de rastreo muestran que los bots de IA no lo piden. Lo que sí leen
+# es el HTML, y ahí es donde está el contenido horneado.
 
+User-agent: *
+Allow: /
+Disallow: /resena/
+
+# ── Buscadores ──
 User-agent: Googlebot
 Allow: /
 Disallow: /resena/
+
+User-agent: Googlebot-Image
+Allow: /
 
 User-agent: Bingbot
 Allow: /
 Disallow: /resena/
 
-User-agent: Twitterbot
+User-agent: DuckDuckBot
 Allow: /
 Disallow: /resena/
 
-User-agent: facebookexternalhit
+# ── Buscadores y asistentes con IA ──
+User-agent: GPTBot
 Allow: /
 Disallow: /resena/
 
-User-agent: PerplexityBot
+User-agent: OAI-SearchBot
 Allow: /
 Disallow: /resena/
 
@@ -24,11 +41,15 @@ User-agent: ChatGPT-User
 Allow: /
 Disallow: /resena/
 
-User-agent: GPTBot
+User-agent: ClaudeBot
 Allow: /
 Disallow: /resena/
 
-User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /resena/
+
+User-agent: Claude-User
 Allow: /
 Disallow: /resena/
 
@@ -36,12 +57,57 @@ User-agent: anthropic-ai
 Allow: /
 Disallow: /resena/
 
+User-agent: PerplexityBot
+Allow: /
+Disallow: /resena/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /resena/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /resena/
+
+User-agent: Applebot
+Allow: /
+Disallow: /resena/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /resena/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /resena/
+
 User-agent: CCBot
 Allow: /
 Disallow: /resena/
 
-User-agent: *
+User-agent: cohere-ai
 Allow: /
 Disallow: /resena/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /resena/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /resena/
+
+# ── Redes sociales (vistas previas al compartir) ──
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
 
 Sitemap: https://www.thalassahub.com/sitemap.xml

@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { codigoIdioma, enIdioma, type Profesional } from '@/lib/thalassaApi';
 import ProfessionalAvatar from './ProfessionalAvatar';
-import ProfessionalModal from './ProfessionalModal';
 
 interface Props {
   profesionales: Profesional[];
@@ -17,7 +17,6 @@ const ProfessionalGrid = ({ profesionales, conFiltros = false, cargando = false 
   const { t, language } = useLanguage();
   const { ref: cardsRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [area, setArea] = useState<string | null>(null);
-  const [abierto, setAbierto] = useState<Profesional | null>(null);
 
   // Las áreas salen de los propios perfiles: si Susana añade una especialidad
   // nueva desde el panel, aparece sola en el filtro.
@@ -76,7 +75,11 @@ const ProfessionalGrid = ({ profesionales, conFiltros = false, cargando = false 
             <div className="flex items-center gap-4 mb-5">
               <ProfessionalAvatar p={p} className="w-16 h-16 text-lg" />
               <div>
-                <h3 className="font-heading text-xl font-bold text-primary leading-tight">{p.nombre}</h3>
+                <h3 className="font-heading text-xl font-bold text-primary leading-tight">
+                  <Link to={`/profesionales/${p.slug}`} className="hover:text-secondary transition-colors">
+                    {p.nombre}
+                  </Link>
+                </h3>
                 <p className="text-xs font-semibold uppercase tracking-wider text-secondary mt-1.5">
                   {enIdioma(p.rol_es, p.rol_en, language)}
                 </p>
@@ -98,12 +101,12 @@ const ProfessionalGrid = ({ profesionales, conFiltros = false, cargando = false 
             )}
 
             <div className="flex items-center justify-between border-t border-border/70 pt-4 mt-auto">
-              <button
-                onClick={() => setAbierto(p)}
+              <Link
+                to={`/profesionales/${p.slug}`}
                 className="text-sm font-bold text-primary hover:text-secondary transition-colors"
               >
                 {t('professionals.viewProfile')}
-              </button>
+              </Link>
               {p.idiomas.length > 0 && (
                 <span className="text-xs text-muted-foreground">
                   {p.idiomas.map(codigoIdioma).join(' · ')}
@@ -113,8 +116,6 @@ const ProfessionalGrid = ({ profesionales, conFiltros = false, cargando = false 
           </article>
         ))}
       </div>
-
-      <ProfessionalModal profesional={abierto} onClose={() => setAbierto(null)} />
     </>
   );
 };

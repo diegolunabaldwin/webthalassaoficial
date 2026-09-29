@@ -33,9 +33,24 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://www.thalassahub.com/#organization",
           "name": "Thalassa Hub S.L",
+          "alternateName": "Thalassa Hub",
           "url": "https://www.thalassahub.com",
+          "email": "hola@thalassahub.com",
+          "telephone": "+34 614 61 55 37",
+          "areaServed": ["ES", "PT", "EU"],
+          "knowsAbout": [
+            "Seguridad alimentaria",
+            "BRCGS Food Safety",
+            "IFS Food",
+            "FSSC 22000",
+            "ISO 22000",
+            "Auditoría de certificación alimentaria",
+            "Formación en seguridad alimentaria",
+            "Internacionalización de empresas alimentarias"
+          ],
           "logo": "/logo.png",
           "description": "Consultoría estratégica especializada en la Industria Alimentaria. Estrategia, Mercados y Formación.",
           "foundingDate": "2025",
@@ -67,14 +82,12 @@
         },
         {
           "@type": "WebSite",
+          "@id": "https://www.thalassahub.com/#website",
           "name": "Thalassa Hub",
           "url": "https://www.thalassahub.com",
           "description": "Consultoría estratégica especializada en la Industria Alimentaria",
           "inLanguage": "es",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Thalassa Hub S.L"
-          }
+          "publisher": { "@id": "https://www.thalassahub.com/#organization" }
         },
         {
           "@type": "FAQPage",

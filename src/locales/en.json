@@ -116,7 +116,8 @@
     "ctaText": "Not sure which profile fits your project? Tell us what you need and we will suggest the right one.",
     "ctaButton": "Let's talk about your project",
     "backHome": "Back to home",
-    "viaHub": "All contact with our professionals is arranged through Thalassa Hub."
+    "viaHub": "All contact with our professionals is arranged through Thalassa Hub.",
+    "notFound": "We could not find that professional"
   },
   "reviews": {
     "subtitle": "What our clients say",

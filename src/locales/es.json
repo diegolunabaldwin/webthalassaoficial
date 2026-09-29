@@ -116,7 +116,8 @@
     "ctaText": "¿No sabes qué perfil encaja con tu proyecto? Cuéntanos qué necesitas y te proponemos el adecuado.",
     "ctaButton": "Hablemos de tu proyecto",
     "backHome": "Volver al inicio",
-    "viaHub": "Todo el contacto con nuestros profesionales se coordina a través de Thalassa Hub."
+    "viaHub": "Todo el contacto con nuestros profesionales se coordina a través de Thalassa Hub.",
+    "notFound": "No hemos encontrado ese profesional"
   },
   "reviews": {
     "subtitle": "Lo que dicen nuestros clientes",

@@ -94,6 +94,7 @@ export type TranslationKey =
   | 'professionals.languages'
   | 'professionals.availability'
   | 'professionals.viaHub'
+  | 'professionals.notFound'
 
   // Consulta desde la ficha de un profesional
   | 'consulta.abrir'

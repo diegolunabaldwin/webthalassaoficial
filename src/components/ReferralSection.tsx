@@ -287,7 +287,7 @@ const ReferralSection = () => {
                     </span>
                     <span className="text-primary-foreground/90 font-body text-sm leading-relaxed">
                       {t('referral.consent')}{' '}
-                      <button type="button" onClick={(e) => { e.preventDefault(); setPrivacidad(true); }}
+                      <button type="button" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setPrivacidad(true); }}
                         className="underline hover:text-champagne transition-colors">
                         {t('referral.consentPrivacy')}
                       </button>
